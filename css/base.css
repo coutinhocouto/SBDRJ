@@ -583,3 +583,9 @@ body {
         background-position: center !important;
     }
 }
+
+#resultado .outros {text-align: center !important; padding: 10px; margin-top: 10px; font-weight: 700;}
+.mais-detalhes {display: none;}
+
+.lista-ass {background: #eee; padding: 10px; margin: 10px 0; color: #000; font-size: 15px;}
+.lista-ass h3 {color: #014761; font-size: 20px; margin: 0;}
