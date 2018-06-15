@@ -67,11 +67,14 @@
                     <span class="title">Busca de Associados</span>
                 </div>              
                 <form  class="list busca">
-                
-                    <input style="width:85%;" class="buscar input" type="text" id="nome" placeholder="Nome, Bairro ou endereço">
+                	
+					<style>
+						.busca input, .busca select {width: 100% !important; border-radius: 0 !important; margin-bottom: 5px;}
+					</style>
 					
-					<input style="background-color:#D94514; height:45px; position:absolute;" type="image" id="buscar" src="img/LUPA.png">                                        
-                    
+                    <input style="width:85%;" class="buscar input" type="text" id="nome" placeholder="Nome">
+					<input style="width:85%;" class="buscar input" type="text" id="end" placeholder="Bairro ou endereço">
+					
                     <select id="area" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
 						<option value="" selected>TODAS AS ÁREAS</option>
 						<option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
@@ -92,6 +95,7 @@
 						<option value="TELEMEDICINA">TELEMEDICINA</option>
 						<option value="UNHAS">UNHAS</option>   
                 	</select>
+					<input type="submit" value="Pesquisar" id="buscar" />
 
                 </form><br>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -104,16 +108,17 @@
 							 
 							 var nome = "";
 							 var area = "";
-							 var and = "";
+							 var end = "";
 							 
 							 if($('#nome').val()){ nome = 'nome=' + $('#nome').val(); }
 							 if($('#area').val()){ area = 'area=' + $('#area').val(); }
-							 if($('#nome').val() && $('#area').val()){ and = "&"; }
+							 if($('#end').val()){ end = 'end=' + $('#end').val(); }
 							 
-							 var filtro = nome + and + area;
+							 var filtro = nome + '&' + area + '&' + end;
 							 
 							 var url="http://www.appsbdrj.kinghost.net/appsbdrj/buscar-associados.php?" + filtro;
-							 console.log(url + ' -- ' + nome + ' -- ' + area + ' -- ' + and + ' -- ' + filtro);
+							 
+							 console.log(url);
 							 
 							 $.getJSON(url,function(result){
 								 
