@@ -10,9 +10,9 @@
     <content src="index.html" />
 	
 	<!-- all platforms -->
-	<preference name="phonegap-version" value="cli-8.0.0" />
+	<preference name="phonegap-version" value="cli-6.4.0" />
 	<preference name="orientation" value="portrait"/>
-	<preference name="fullscreen" value="true" />
+	<preference name="fullscreen" value="false" />
 	<preference name="DisallowOverscroll" value="true" />
 	
 	<!-- Android only -->    
