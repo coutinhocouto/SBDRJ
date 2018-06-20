@@ -10,7 +10,7 @@
     <content src="index.html" />
 	
 	<!-- all platforms -->
-	<preference name="phonegap-version" value="cli-6.3.1" />
+	<preference name="phonegap-version" value="cli-8.0.0" />
 	<preference name="orientation" value="portrait"/>
 	<preference name="fullscreen" value="false" />
 	<preference name="DisallowOverscroll" value="true" />
@@ -21,7 +21,7 @@
 	<preference name="android-build-tool" value="gradle" />
 	
 	<!-- iOS only -->
-	<preference name="target-device" value="handset"/>
+	<preference name="target-device" value="universal"/>
 	<preference name="prerendered-icon" value="true"/>
 	<preference name="StatusBarOverlaysWebView" value="true" />
 	<preference name="StatusBarBackgroundColor" value="#000000" />
