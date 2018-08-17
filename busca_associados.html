@@ -157,10 +157,10 @@
 					});
 					$( document ).ajaxStop(function() {
 					  $( "#loader" ).hide();
-					});
-					$('body').on('click', '.lista-ass h3', function() {
+					  $('.lista-ass h3').click(function(){
 						$('.lista-ass .mais-detalhes').hide();
-						$(this).parent().find('.mais-detalhes').toggle();
+						$(this).parent().find('.mais-detalhes').toggle();  
+					  });
 					});
 				 </script>
 					

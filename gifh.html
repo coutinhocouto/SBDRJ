@@ -92,6 +92,7 @@
 								highest = Math.max(highest, parseFloat(this.value));
 							});
 							
+							$('#hansen-escore').html(st);
 							$('#hansen-indice').html(dt);
 							$('#hansen-diag').html(highest);
 							
@@ -150,9 +151,9 @@
 					<table>
 						<tr>
 							<th>Grau</th>
-							<th>Descição</th>
 							<th>Direito</th>
 							<th>Esquerdo</th>
+							<th>Descição</th>
 						</tr>
 						<tr>
 							<td>0</td>
@@ -170,7 +171,7 @@
 							<td>2</td>
 							<td><input type="radio" value="2" name="mao-dir" /></td>
 							<td><input type="radio" value="2" name="mao-esq" /></td>
-							<td><a class="help-hansen" data-toggle="tooltip" data-html="true" title="Definciência(s) visível(eis) causadas pela hanseníase, como: garras, reabsorção óssea, atrofia muscular, mão caída, contratura, feridas tróficas e/ou traumáticas.">?</a></td>
+							<td><a class="help-hansen" data-toggle="tooltip" data-html="true" title="Deficiência(s) visível(eis) causadas pela hanseníase, como: garras, reabsorção óssea, atrofia muscular, mão caída, contratura, feridas tróficas e/ou traumáticas.">?</a></td>
 						</tr>
 					</table>
 					
@@ -181,9 +182,9 @@
 					<table>
 						<tr>
 							<th>Grau</th>
-							<th>Descrição</th>
 							<th>Direito</th>
 							<th>Esquerdo</th>
+							<th>Descrição</th>
 						</tr>
 						<tr>
 							<td>0</td>
@@ -215,6 +216,9 @@
 						<br><br>
 						<strong><font size="+2">ÍNDICE</font> <a class="help-hansen" data-toggle="tooltip" data-html="true" title="Baseado na média de todos os resultados encontrados.">?</a></strong>
 						<center><font size="+4" color="#D94514"><span id="hansen-indice"></span></font></center>
+						<br><br>
+						<strong><font size="+2">ESCORE</font> <a class="help-hansen" data-toggle="tooltip" data-html="true" title="Soma de todos os resultados encontrados.">?</a></strong>
+						<center><font size="+4" color="#D94514"><span id="hansen-escore"></span></font></center>
 						
 						
 						<a class="btn3 outros" href="gifh.html">FAZER NOVO CÁLCULO</a>
