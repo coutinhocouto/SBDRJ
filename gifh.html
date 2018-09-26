@@ -118,27 +118,6 @@
 						
 						$(".gif-img").colorbox({width:"80%"});
 						
-						function handleExternalURLs() {
-						// Handle click events for all external URLs
-						if (device.platform.toUpperCase() === 'ANDROID') {
-							$(document).on('click', 'a[href^="http"]', function (e) {
-								var url = $(this).attr('href');
-								navigator.app.loadUrl(url, { openExternal: true });
-								e.preventDefault();
-							});
-						}
-						else if (device.platform.toUpperCase() === 'IOS') {
-							$(document).on('click', 'a[href^="http"]', function (e) {
-								var url = $(this).attr('href');
-								window.open(url, '_system');
-								e.preventDefault();
-							});
-						}
-						else {
-							// Leave standard behaviour
-						}
-}
-						
 					});
 				</script>
 				
@@ -261,7 +240,7 @@
 						<center><font size="+4" color="#D94514"><span id="hansen-escore"></span></font></center>
 					</div>
 					<a class="btn3 outros" href="gifh.html">FAZER NOVO CÁLCULO</a>
-					<a class="btn3 outros" id="btGerarPDF" target="_blank">GERAR PDF</a>
+					<a class="btn3 outros" id="btGerarPDF">GERAR PDF</a>
 				</div>
                     
             </div>
