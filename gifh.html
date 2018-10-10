@@ -111,6 +111,7 @@
 
 						$(".gif-img").colorbox({width:"80%"});
 						
+						//FIRST GENERATE THE PDF DOCUMENT
 						console.log("generating pdf…");
 						var doc = new jsPDF();
 
@@ -153,7 +154,8 @@
 						},
 						function(event){
 						console.log( evt.target.error.code );
-
+						});
+						
 					});
 				</script>
 				
