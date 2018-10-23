@@ -77,6 +77,38 @@
                     <span class="title">GIF HANSENÍASE</span>
                 </div>              
 				<script>
+					function saveImageToPhone(url, success, error) {
+						var canvas, context, imageDataUrl, imageData;
+						var img = new Image();
+						img.onload = function() {
+							canvas = document.createElement('canvas');
+							canvas.width = img.width;
+							canvas.height = img.height;
+							context = canvas.getContext('2d');
+							context.drawImage(img, 0, 0);
+							try {
+								imageDataUrl = canvas.toDataURL('image/jpeg', 1.0);
+								imageData = imageDataUrl.replace(/data:image\/jpeg;base64,/, '');
+								cordova.exec(
+									success,
+									error,
+									'Canvas2ImagePlugin',
+									'saveImageDataToLibrary',
+									[imageData]
+								);
+							}
+							catch(e) {
+								error(e.message);
+							}
+						};
+						try {
+							img.src = url;
+						}
+						catch(e) {
+							error(e.message);
+						}
+					}
+					
 					jQuery( document ).ready(function($) {
 						$('.help-hansen').tooltip()	
 						$('#hansen-calc').click(function(){
@@ -102,38 +134,16 @@
 							
 							$('#cacular').hide();
 							$('#calculado').show();
-							
-							html2canvas(document.getElementById("calculado")).then(function(canvas) {
-								var link = document.getElementById("btGerarPDF");
-								
-								link.download = "gifh.jpg";
-								link.href = canvas.toDataURL();
+
+							html2canvas(document.querySelector("#calculado")).then(canvas => {
+								document.body.appendChild(canvas)
 							});
+
+							saveImageToPhone('gifh.jpg', success, error);
 							
 						});
 					
 						$(".gif-img").colorbox({width:"80%"});
-						
-						function handleExternalURLs() {
-							// Handle click events for all external URLs
-							if (device.platform.toUpperCase() === 'ANDROID') {
-								$(document).on('click', 'a[href^="http"]', function (e) {
-									var url = $(this).attr('href');
-									navigator.app.loadUrl(url, { openExternal: true });
-									e.preventDefault();
-								});
-							}
-							else if (device.platform.toUpperCase() === 'IOS') {
-								$(document).on('click', 'a[href^="http"]', function (e) {
-									var url = $(this).attr('href');
-									window.open(url, '_system');
-									e.preventDefault();
-								});
-							}
-							else {
-								// Leave standard behaviour
-							}
-						}
 						
 					});
 					
