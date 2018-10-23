@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.visanacomunicacao.sbdrjapp" version="1.2.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="br.com.visanacomunicacao.sbdrjapp" version="1.2.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>SBDRJ</name>
     <description>
         App oficial da SBDRJ.
@@ -41,6 +41,7 @@
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
+	<plugin name="it.zerob.cordova.screenshot" spec="0.1.3" source="pgb" />
 	
 	<plugin name="cordova-plugin-splashscreen"          source="npm">
 		  <preference name="SplashScreen"               value="splash" />
