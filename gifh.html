@@ -27,8 +27,12 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
-	
+		
+		<link rel="stylesheet" type="text/css" href="css/colorbox.css">
+		<script src="js/jquery.colorbox-min.js"></script>
+		<script src="js/html2canvas.js"></script>
+		
+		
             <div class="menu">
             <div class="app-menu">
                 <a role="button" href="#" class="icon close"><span>Fechar</span></a>
@@ -100,26 +104,20 @@
 							$('#calculado').show();
 							
 							
-							navigator.screenshot.save(function(error,res){
-							  if(error){
-								console.error(error);
-							  }else{
-								console.log('ok',res.filePath); //should be path/to/myScreenshot.jpg
-							  }
-							},'jpg',50,'gif-hanseniase');
-
+							 html2canvas(document.getElementById("calculado")).then(function(canvas) {
+								var link = document.querySelector("#btGerarPDF");
+								
+								link.download = "manpower_efficiency.jpg";
+								link.href = canvas.toDataURL();
+								link.target = '_blank';
+							});
+							
 						});
-						
-						var doc = new jsPDF();
-						var specialElementHandlers = {
-							'#editor': function (element, renderer) {
-								return true;
-							}
-						};
-
+					
 						$(".gif-img").colorbox({width:"80%"});
 						
 					});
+					
 				</script>
 				
 				<style>
@@ -241,7 +239,7 @@
 						<center><font size="+4" color="#D94514"><span id="hansen-escore"></span></font></center>
 					</div>
 					<a class="btn3 outros" href="gifh.html">FAZER NOVO CÁLCULO</a>
-					<!--<a class="btn3 outros" id="btGerarPDF">GERAR PDF</a>-->
+					<a class="btn3 outros" id="btGerarPDF">GERAR PDF</a>
 				</div>
                     
             </div>
@@ -258,9 +256,5 @@
         </div>
         <!--<script type="text/javascript" src="cordova.js"></script>-->
        
-		<link rel="stylesheet" type="text/css" href="css/colorbox.css">
-		<script src="js/jquery.colorbox-min.js"></script>
-		
-		
     </body>
 </html>
