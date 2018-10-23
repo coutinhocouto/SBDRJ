@@ -31,7 +31,6 @@
 		<link rel="stylesheet" type="text/css" href="css/colorbox.css">
 		<script src="js/jquery.colorbox-min.js"></script>
 		<script src="js/html2canvas.js"></script>
-		<script src="js/Canvas2ImagePlugin.js"></script>
 		
 		
             <div class="menu">
@@ -104,23 +103,38 @@
 							$('#cacular').hide();
 							$('#calculado').show();
 							
-							html2canvas(document.querySelector("#calculado")).then(canvas => {
-								document.querySelector("#calculado").appendChild(canvas)
+							html2canvas(document.getElementById("calculado")).then(function(canvas) {
+								var link = document.getElementById("btGerarPDF");
+								
+								link.download = "manpower_efficiency.jpg";
+								link.href = canvas.toDataURL();
+								link.target = '_blank';
 							});
-							
-							window.canvas2ImagePlugin.saveImageDataToLibrary(
-								function(msg){
-									console.log(msg);
-								},
-								function(err){
-									console.log(err);
-								},
-								document.querySelector('canvas')
-							);
 							
 						});
 					
 						$(".gif-img").colorbox({width:"80%"});
+						
+						function handleExternalURLs() {
+							// Handle click events for all external URLs
+							if (device.platform.toUpperCase() === 'ANDROID') {
+								$(document).on('click', 'a[href^="http"]', function (e) {
+									var url = $(this).attr('href');
+									navigator.app.loadUrl(url, { openExternal: true });
+									e.preventDefault();
+								});
+							}
+							else if (device.platform.toUpperCase() === 'IOS') {
+								$(document).on('click', 'a[href^="http"]', function (e) {
+									var url = $(this).attr('href');
+									window.open(url, '_system');
+									e.preventDefault();
+								});
+							}
+							else {
+								// Leave standard behaviour
+							}
+						}
 						
 					});
 					
