@@ -31,6 +31,7 @@
 		<link rel="stylesheet" type="text/css" href="css/colorbox.css">
 		<script src="js/jquery.colorbox-min.js"></script>
 		<script src="js/html2canvas.js"></script>
+		<script src="js/Canvas2ImagePlugin.js"></script>
 		
 		
             <div class="menu">
@@ -103,14 +104,19 @@
 							$('#cacular').hide();
 							$('#calculado').show();
 							
-							
-							 html2canvas(document.getElementById("calculado")).then(function(canvas) {
-								var link = document.querySelector("#btGerarPDF");
-								
-								link.download = "manpower_efficiency.jpg";
-								link.href = canvas.toDataURL();
-								link.target = '_blank';
+							html2canvas(document.querySelector("#calculado")).then(canvas => {
+								document.querySelector("#calculado").appendChild(canvas)
 							});
+							
+							window.canvas2ImagePlugin.saveImageDataToLibrary(
+								function(msg){
+									console.log(msg);
+								},
+								function(err){
+									console.log(err);
+								},
+								document.querySelector('canvas')
+							);
 							
 						});
 					
