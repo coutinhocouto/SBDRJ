@@ -43,6 +43,9 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
 	<plugin name="cordova-plugin-canvas2image" source="npm" />
 	
+	<plugin name="cordova-plugin-file" spec="^4.3.3" />
+	<plugin name="cordova-pdf-generator" spec="^2.0.1" />
+	
 	<plugin name="cordova-plugin-splashscreen"          source="npm">
 		  <preference name="SplashScreen"               value="splash" />
 		  <preference name="AutoHideSplashScreen"       value="true" />

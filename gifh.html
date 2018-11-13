@@ -77,39 +77,8 @@
                     <span class="title">GIF HANSENÍASE</span>
                 </div>              
 				<script>
-					function saveImageToPhone(url, success, error) {
-						var canvas, context, imageDataUrl, imageData;
-						var img = new Image();
-						img.onload = function() {
-							canvas = document.createElement('canvas');
-							canvas.width = img.width;
-							canvas.height = img.height;
-							context = canvas.getContext('2d');
-							context.drawImage(img, 0, 0);
-							try {
-								imageDataUrl = canvas.toDataURL('image/jpeg', 1.0);
-								imageData = imageDataUrl.replace(/data:image\/jpeg;base64,/, '');
-								cordova.exec(
-									success,
-									error,
-									'Canvas2ImagePlugin',
-									'saveImageDataToLibrary',
-									[imageData]
-								);
-							}
-							catch(e) {
-								error(e.message);
-							}
-						};
-						try {
-							img.src = url;
-						}
-						catch(e) {
-							error(e.message);
-						}
-					}
-					
 					jQuery( document ).ready(function($) {
+						
 						$('.help-hansen').tooltip()	
 						$('#hansen-calc').click(function(){
 							var od = parseInt($("input[name=olho-dir]:checked").val());
@@ -134,12 +103,6 @@
 							
 							$('#cacular').hide();
 							$('#calculado').show();
-
-							html2canvas(document.querySelector("#calculado")).then(canvas => {
-								document.body.appendChild(canvas)
-							});
-
-							saveImageToPhone('gifh.jpg', success, error);
 							
 						});
 					
@@ -268,7 +231,6 @@
 						<center><font size="+4" color="#D94514"><span id="hansen-escore"></span></font></center>
 					</div>
 					<a class="btn3 outros" href="gifh.html">FAZER NOVO CÁLCULO</a>
-					<a class="btn3 outros" id="btGerarPDF">GERAR PDF</a>
 				</div>
                     
             </div>
