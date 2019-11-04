@@ -22,6 +22,7 @@
         <title>Sociedade Brasileira de Dermatologia | Regional Rio de Janeiro</title>
         
     <script src="js/jquery.js"></script>
+		<script src="js/jquery.mask.js"></script>
      
        
     </head>
@@ -39,8 +40,156 @@
 
                     
             </div>
+			
+			<script>
+				$( document ).ready(function() {
+					
+					$('#cpf').mask("00000000000", {reverse: true})
+					
+					 $('#cpf').focusout(function(){
+					
+						var cpf = $(this).val();
+						
+						var url="https://eventosdermatologicos.com.br/apps/sbdsp/existe.php?id=" + cpf;
+						$.getJSON(url,function(result){
+							 $.each(result, function(i, field){
+								
+								if(field.contador == 1){
+									
+									$(".response").html('');
+									$(".response").append('<span id="erro-login">Este CPF já está cadastrado.<span>');
+									$("#botao").prop('disabled', true);
+									
+								} else {
+									$(".response").html('');
+									$("#botao").prop('disabled', false);
+									
+									$.ajax({
+									  type: "GET",
+									  url: "https://www.sbdassociados.org.br/interface/SocioQuiteIsento.asmx/ExibeSocioQuiteIsento?Seg=DYNUX&EmpresaSeq=39&CPF=" + cpf,
+									  dataType: "xml",
+									  crossDomain: true,
+									  success: function(xml){
+										  $(xml).each(function(){
+											if($(this).find('string').text() === "N"){                            
+												$.ajax({
+												  type: "GET",
+												  url: "https://www.sbdassociados.org.br/interface/Residente.asmx/ExibeResidente?Seg=E4WO0&EmpresaSeq=41&CPF=" + cpf,
+												  dataType: "xml",
+												  crossDomain: true,
+												  success: function(xml){
+													  $(xml).each(function(){
+														if($(this).find('string').text() === "N"){
+															$(".response").html('<span id="erro-login">Somente associados e residentes da SBD podem se cadastrar!</span>');
+															$("#botao").prop('disabled', true);
+														} else {
+															$(".response").html('');
+															$("#botao").prop('disabled', false);
+														}
+													  });
+												  },
+												  error: function() {
+													  alert("An error occurred while processing XML file.");
+												  }
+												});
+
+											} else {
+
+												$(".response").html('');
+												$("#insert").prop('disabled', false);
+											}
+										  });
+									  },
+									  error: function() {
+										  alert("An error occurred while processing XML file.");
+									  }
+									});
+									
+								}
+								
+							 });
+						 });
+						
+					  });
+					
+					$("#insert").click(function(){
+						
+						var nome = $("#nome").val();
+						var email = $("#email").val();
+						var regional = $("#regional").val();
+						var cpf = $("#cpf").val();
+						var acao = $("#acao").val();
+						var senha = $("#senha").val();
+						var token = $("#token").val();
+						
+						$(".response").html('');
+						
+						if($("#nome").val() == ''){
+							$(".response").append('<span id="erro-login">É necessário infomar seu nome.<span>');
+						}
+						if($("#email").val() == ''){
+							$(".response").append('<span id="erro-login">É necessário infomar seu email.<span>');
+						}
+						if($("#cpf").val() == ''){
+							$(".response").append('<span id="erro-login">É necessário infomar seu CPF.<span>');
+						}
+						if($("#senha").val() == ''){
+							$(".response").append('<span id="erro-login">É necessário infomar sua senha.<span>');
+						}
+						
+						if($("#senha").val() != $("#confirmar").val()){
+							$(".response").append('<span id="erro-login">As senhas não conferem.<span>');
+						}
+						
+						
+						if($.trim(nome).length>0 & $.trim(email).length>0  & $.trim(regional).length>0  & $.trim(cpf).length>0  & $.trim(senha).length>0  & $.trim(confirmar).length>0 )	{
+							
+							var dataString="nome="+nome+"&regional="+regional+"&email="+email+"&acao="+acao+"&senha="+senha+"&cpf="+cpf+"&token="+token;
+						
+							console.log(dataString);
+						
+							
+							$.post({								
+								url:"https://eventosdermatologicos.com.br/apps/sbdsp/criar-conta.php",
+								data: dataString,
+								crossDomain: true,
+								cache: false,
+								beforeSend: function(){ $("#insert").html('Criando...');},
+								error: function(){
+									$("#insert").html('Indicar');
+									$(".response").html('<span id="erro-login">Houve um erro ao criar sua conta, por favor cheque sua internet e tente novamente.<span>');
+								},
+								success: function() {
+									$("#insert").html('Indicar');
+									$(".response").html('<a href="index.html" id="criado-sucesso">Seu cadastro foi criado com sucesso. Clique aqui para entrar</a>');
+									$("#nome").val('');
+									$("#email").val('');
+									$("#senha").val('');
+									$("#cpf").val('');
+								}
+							});
+						}
+						
+						return false;
+						
+					});					
+				});
+				$( document ).ajaxStart(function() {
+				  $( "#loader" ).show();
+					$( "#loginform input" ).hide();
+					$( "#loginform select" ).hide();
+				});
+				$( document ).ajaxStop(function() {
+				  $( "#loader" ).hide();
+					$( "#loginform input" ).show();
+					$( "#loginform select" ).show();
+				});
+			</script>
        
             <div class=" white align-vertical scroll">
+				
+				<div class="response"></div>
+				
               	<div id="resultado" style="background-color:#FF0000"></div>
                 <center><img id="carregando" src="img/carregando.gif" height="40" width="40" style="display:none;"></center>
                 <form class="list busca" action="javascript:envia_post();">
@@ -165,10 +314,11 @@
             
         </div>
         <!--<script type="text/javascript" src="cordova.js"></script>-->
-
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		
     </body>
 </html>
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
 <script>
 function envia_post ($id) {
 	$("#carregando").show();
@@ -188,7 +338,7 @@ function envia_post ($id) {
 		//$deviceId='teste';
 
 $("#carregando").show();	
-$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "cadastro", cpf: $cpf, nome: $nome, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId, termo: $termo })
+$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "cadastro", cpf: $cpf, nome: $nome, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId, termo: $termo })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	

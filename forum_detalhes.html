@@ -39,7 +39,7 @@
                     <li class="item"><a role="button" class="btn icon sair last" href="sair.html"><span>Logout</span></a></li>
                 </ul>
             </div>
-    <div class="footer-menu"> <span class="title">Diretoria 2017-2018 | Gestão Jarbas Porto</span> <span class="text">SBDRJ | Sociedade Brasileira de Dermatologia - Regional Rio de Janeiro</span> <a class="link-site" href="https://www.sbdrj.org.br">www.sbdrj.org.br</a> </div>
+    <div class="footer-menu"> <span class="title">Diretoria 2019-2020 | Gestão Professora Maria Auxiliadora Jeunon Sousa</span> <span class="text">SBDRJ | Sociedade Brasileira de Dermatologia - Regional Rio de Janeiro</span> <a class="link-site" href="https://www.sbdrj.org.br">www.sbdrj.org.br</a> </div>
   </div>
         </div>
 <div class="app">
@@ -108,7 +108,7 @@ if ($online) {
 	var $forum = retorno[1];
 
 $("#carregando").show();	
-$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "forum_detalhes", forum: $forum })
+$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "forum_detalhes", forum: $forum })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -144,7 +144,7 @@ function envia_post () {
 
 	$("#carregando").show();	
 	
-$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "nova_mensagem", mensagem: $mensagem, device: $deviceId, forum: $cod_forum })
+$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "nova_mensagem", mensagem: $mensagem, device: $deviceId, forum: $cod_forum })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	

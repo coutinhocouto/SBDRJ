@@ -1,4 +1,21 @@
- /* resets */
+.response {text-align: center; margin-top: 20px;}
+
+#erro-login {
+    display: inline-block;
+    background: #ff3333;
+	color:   #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 80%;
+    font-weight: 700;
+}
+
+#botao:disabled {
+  background: #e7e7e7;
+}
+
+/* resets */
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     box-sizing: border-box; 

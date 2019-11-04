@@ -27,7 +27,7 @@ function mais_detalhes($id) {
 
 //alert($id);
 $("#carregando").show();	
-$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "buscar_associados", id: $id})
+$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "buscar_associados", id: $id})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -53,7 +53,7 @@ function menos_detalhes($id) {
 	
 
 //alert($id);	
-$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "buscar_associados", id_menos: $id})
+$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "buscar_associados", id_menos: $id})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -93,7 +93,7 @@ $.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "buscar_
                 </ul>
                 </div>
                 <div class="footer-menu">
-                        <span class="title">Diretoria 2017-2018 | Gestão Jarbas Porto</span>
+                        <span class="title">Diretoria 2019-2020 | Gestão Professora Maria Auxiliadora Jeunon Sousa</span>
                         <span class="text">SBDRJ | Sociedade Brasileira de Dermatologia - Regional Rio de Janeiro</span>
                         <a class="link-site" href="https://www.sbdrj.org.br">www.sbdrj.org.br</a>
                 </div>
@@ -155,7 +155,7 @@ function envia_post () {
 	$bairro=$("#bairro").val()
 
 $("#carregando").show();	
-$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "buscar_associados", buscar: $buscar, bairro: $bairro })
+$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "buscar_associados", buscar: $buscar, bairro: $bairro })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	

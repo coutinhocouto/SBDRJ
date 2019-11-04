@@ -171,35 +171,35 @@ function carrega_dados($id) {
 		//var $deviceId='020A147F-316C-46FC-AF63-0C8685371F3C';
 	
 	
-	$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo: 'nome_usuario', device: $deviceId })
+	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo: 'nome_usuario', device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  $("#nome").val(data);
 	  };
   });
   
-	$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo: 'senha', device: $deviceId })
+	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo: 'senha', device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  $("#senha").val(data);
 	  };
   });
   
- 	$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo2: 'area1', device: $deviceId })
+ 	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo2: 'area1', device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  $("#area1").val(data);
 	  };
   });
   	
-	$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo2: 'area2', device: $deviceId })
+	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo2: 'area2', device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  $("#area2").val(data);
 	  };
   });
   
-  	$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo2: 'area3', device: $deviceId })
+  	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "carrega_altera_cadastro", campo2: 'area3', device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  $("#area3").val(data);
@@ -233,7 +233,7 @@ function envia_post ($id) {
 		//var $deviceId='020A147F-316C-46FC-AF63-0C8685371F3C';
 
 $("#carregando").show();	
-$.post( "http://appsbdrj.kinghost.net/appsbdrj/recebepost.php", { form: "altera_cadastro", nome: $nome, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId })
+$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "altera_cadastro", nome: $nome, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
