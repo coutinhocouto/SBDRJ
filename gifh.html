@@ -99,6 +99,8 @@
 							$('#hansen-indice').html(dt);
 							$('#hansen-diag').html(highest);
 							
+							$('#fazer-pdf').attr('href', 'http://eventosdermatologicos.com.br/apps/sbdrj/gifh.php?gif=' + highest + '&indice=' + dt +'&escore=' + st)
+							
 							$('#cacular').hide();
 							$('#calculado').show();
 							
@@ -216,13 +218,7 @@
 
 					<a class="btn2 outros" id="hansen-calc">CALCULAR</a>
 					
-					 <!-- Button -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="generate">Generate PDF</label>
-                        <div class="col-md-4">
-                            <button id="share" name="share" class="btn btn-primary">Share</button>
-                        </div>
-					</div>
+					
 					
 				</div>
 				
@@ -238,6 +234,7 @@
 						<center><font size="+4" color="#D94514"><span id="hansen-escore"></span></font></center>
 					</div>
 					<a class="btn3 outros" href="gifh.html">FAZER NOVO CÁLCULO</a>
+					<a class="btn3 outros" id="fazer-pdf" href="" target="_blank">GERAR PDF COM OS RESULTADOS</a>
 				</div>
                     
             </div>
@@ -247,7 +244,6 @@
                     <li class="item"><a role="button" href="eventos.html" class="icon eventos hidden-text">Eventos</a></li>
                     <li class="item"><a role="button" href="ferramentas.html" class="icon tools hidden-text">Ferramentas Clínicas</a></li> 
                     <li class="item"><a id="notificacoes" role="button" href="notificacoes.html" class="icon notif hidden-text">Notificações</a></li>
-                    
                 </ul>
             </div>
             
