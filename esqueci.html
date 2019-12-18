@@ -83,7 +83,7 @@ function envia_post ($id) {
 
 
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "esqueci", cpf: $cpf })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "esqueci", cpf: $cpf })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	

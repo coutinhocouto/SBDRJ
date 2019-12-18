@@ -108,7 +108,7 @@ if ($online) {
 	var $forum = retorno[1];
 
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "forum_detalhes", forum: $forum })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "forum_detalhes", forum: $forum })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -144,7 +144,7 @@ function envia_post () {
 
 	$("#carregando").show();	
 	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "nova_mensagem", mensagem: $mensagem, device: $deviceId, forum: $cod_forum })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "nova_mensagem", mensagem: $mensagem, device: $deviceId, forum: $cod_forum })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	

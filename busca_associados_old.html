@@ -27,7 +27,7 @@ function mais_detalhes($id) {
 
 //alert($id);
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "buscar_associados", id: $id})
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "buscar_associados", id: $id})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -53,7 +53,7 @@ function menos_detalhes($id) {
 	
 
 //alert($id);	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "buscar_associados", id_menos: $id})
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "buscar_associados", id_menos: $id})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -155,7 +155,7 @@ function envia_post () {
 	$bairro=$("#bairro").val()
 
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "buscar_associados", buscar: $buscar, bairro: $bairro })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "buscar_associados", buscar: $buscar, bairro: $bairro })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	

@@ -106,7 +106,7 @@ if ($online) {
 		//$deviceId='teste';
 
 		$("#carregando").show();	
-		$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "novo_forum", titulo: $titulo, detalhes: $detalhes, device: $deviceId })
+		$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "novo_forum", titulo: $titulo, detalhes: $detalhes, device: $deviceId })
   		.done(function( data ) {
 	  	if (data=='AUTORIZADO'){
 			window.location.href = "principal.html?logado";
@@ -140,7 +140,7 @@ function carrega_notificacoes($id) {
 		//var $deviceId='020A147F-316C-46FC-AF63-0C8685371F3C';
 	
 	
-	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "notificacoes_count", device: $deviceId })
+	$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "notificacoes_count", device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  var element = document.getElementById("notificacoes");

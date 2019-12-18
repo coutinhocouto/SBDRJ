@@ -114,7 +114,7 @@ function envia_post ($data_prog) {
 		var $deviceId = device.uuid;
 
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "notificacoes"})
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "notificacoes"})
   .done(function( data ) {
 	  if (data==''){
 		  	

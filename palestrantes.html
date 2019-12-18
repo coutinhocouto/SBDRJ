@@ -114,7 +114,7 @@ function envia_load () {
 	var retorno = url_atual.split('?data=');
 	var $cod_evento = retorno[1];
 	
-	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "nomeevento", cod_evento: $cod_evento})
+	$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "nomeevento", cod_evento: $cod_evento})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -140,7 +140,7 @@ function envia_post () {
 
 $("#carregando").show();	
 
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "palestrantes", evento: $cod_evento, buscar: $buscar })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "palestrantes", evento: $cod_evento, buscar: $buscar })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -165,7 +165,7 @@ function envia_post_detalhes ($id) {
 	$buscar=$("#buscar").val();
 
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "palestrantes_detalhes", evento: $cod_evento,codigo: $id, buscar: $buscar })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "palestrantes_detalhes", evento: $cod_evento,codigo: $id, buscar: $buscar })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -181,7 +181,7 @@ $.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form
 </script>
 
 <script>
-$("#buscar2").autocomplete("https://eventosdermatologicos.com.br/apps/sbdrj/completar.php", {
+$("#buscar2").autocomplete("https://app.visana.com.br/sbdrj/completar.php", {
 		width: '80%',
 		selectFirst: false
 	});
@@ -200,7 +200,7 @@ function carrega_notificacoes($id) {
 		//var $deviceId='020A147F-316C-46FC-AF63-0C8685371F3C';
 	
 	
-	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "notificacoes_count", device: $deviceId })
+	$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "notificacoes_count", device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  var element = document.getElementById("notificacoes");

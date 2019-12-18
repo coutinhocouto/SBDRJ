@@ -31,7 +31,7 @@
     console.log("carrega");
 
 
-    $.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "sair", device: $deviceId })
+    $.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "sair", device: $deviceId })
       .done(function( data ) { //if (data==='AUTORIZADO')
         window.location.href = "index.html";
       });

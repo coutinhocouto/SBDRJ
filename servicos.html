@@ -70,7 +70,7 @@ function carregar_conteudo() {
 	$senha=$("#senha").val();
 
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "servicos"})
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "servicos"})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -96,7 +96,7 @@ function mais_detalhes($id) {
 
 //alert($id);
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "servicos", id: $id})
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "servicos", id: $id})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -122,7 +122,7 @@ function menos_detalhes($id) {
 	
 
 //alert($id);	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "servicos", id_menos: $id})
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "servicos", id_menos: $id})
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
@@ -206,7 +206,7 @@ function carrega_notificacoes($id) {
 		//var $deviceId='020A147F-316C-46FC-AF63-0C8685371F3C';
 	
 	
-	$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "notificacoes_count", device: $deviceId })
+	$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "notificacoes_count", device: $deviceId })
   .done(function( data ) {
 	  if (data!=''){
 		  var element = document.getElementById("notificacoes");

@@ -64,7 +64,7 @@ function envia_post () {
 		var $deviceId = device.uuid || 1337;
 
     $("#carregando").show();
-    $.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "login", login: $login, senha: $senha, device: $deviceId })
+    $.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "login", login: $login, senha: $senha, device: $deviceId })
     .done(function( data ) {
       if (data==='AUTORIZADO'){
         window.location.href = "principal.html?logado";

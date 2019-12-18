@@ -338,7 +338,7 @@ function envia_post ($id) {
 		//$deviceId='teste';
 
 $("#carregando").show();	
-$.post( "https://eventosdermatologicos.com.br/apps/sbdrj/recebepost.php", { form: "cadastro", cpf: $cpf, nome: $nome, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId, termo: $termo })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "cadastro", cpf: $cpf, nome: $nome, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId, termo: $termo })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
