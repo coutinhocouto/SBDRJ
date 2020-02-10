@@ -44,7 +44,8 @@
 			<script>
 				$( document ).ready(function() {
 					
-					$('#cpf').mask("00000000000", {reverse: true})
+					$('#cpf').mask("00000000000", {reverse: true});
+					$('#telefone').mask("(00) 00000-0000")
 					
 					/*$('#cpf').focusout(function(){
 					
@@ -301,18 +302,17 @@
 function envia_post ($id) {
 	$("#carregando").show();
 	$cpf=$("#cpf").val();
+	$nome=$("#nome").val();
+	$nomeapp=$("#nomeapp").val();
+	$regional=$("#regional").val();
+	$endereco=$("#endereco").val();
+	$telefone=$("#telefone").val();
 	$area1=$("#area1").val();
 	$area2=$("#area2").val();
 	$area3=$("#area3").val();
 	$senha=$("#senha").val();
 	$csenha=$("#csenha").val();
 	$termo=$("#termo").val();
-	
-	$nome=$("#nome").val();
-	$nomeapp=$("#nomeapp").val();
-	$regional=$("#regional").val();
-	$endereco=$("#endereco").val();
-	$telefone=$("#telefone").val();
 	$email=$("#email").val();
 	
 	document.addEventListener("deviceready", onDeviceReady, false);
