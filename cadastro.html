@@ -138,8 +138,29 @@
 						<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="tel" id="cpf" placeholder="CPF" maxlength="11">                    
 					</center>
 						<br>
+					
 					<center>
-						<input maxlength="25" style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="text" id="nome" placeholder="NOME PARA EXIBIÇÃO NO APP">                    
+                    	<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="text" id="nome" placeholder="NOME COMPLETO">                    
+					</center>
+					<br>
+
+					<center>
+						<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="text" id="endereco" placeholder="ENDEREÇO COMERCIAL">                    
+					</center>
+					<br>
+
+					<center>
+						<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="email" id="email" placeholder="EMAIL">                    
+					</center>
+					<br>
+
+					<center>
+						<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="tel" id="telefone" placeholder="TELEFONE COMERCIAL">                    
+					</center>
+					<br>
+
+					<center>
+						<input maxlength="25" style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="text" id="nomeapp" placeholder="NOME PARA EXIBIÇÃO NO APP">                    
 					</center>
 					<br>
 
@@ -281,13 +302,19 @@
 function envia_post ($id) {
 	$("#carregando").show();
 	$cpf=$("#cpf").val();
-	$nome=$("#nome").val();
 	$area1=$("#area1").val();
 	$area2=$("#area2").val();
 	$area3=$("#area3").val();
 	$senha=$("#senha").val();
 	$csenha=$("#csenha").val();
 	$termo=$("#termo").val();
+	
+	$nome=$("#nome").val();
+	$nomeapp=$("#nomeapp").val();
+	$regional=$("#regional").val();
+	$endereco=$("#endereco").val();
+	$telefone=$("#telefone").val();
+	$email=$("#email").val();
 	
 	document.addEventListener("deviceready", onDeviceReady, false);
 		
