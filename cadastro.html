@@ -16,7 +16,7 @@
          
         <style>
             .icon.menu-icon::after{
-                background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNThweCIgaGVpZ2h0PSI0NXB4IiB2aWV3Qm94PSIwIDAgNTggNDUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ2LjIgKDQ0NDk2KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5pY29uLW1lbnU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iaWNvbi1tZW51IiBmaWxsLXJ1bGU9Im5vbnplcm8iIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8cGF0aCBkPSJNNTQuNDE2LDguMjkgTDMuNTg0LDguMjkgQzEuNjEzLDguMjkgMCw2LjY3NyAwLDQuNzA2IEwwLDMuNTg0IEMwLDEuNjEzIDEuNjEzLDAgMy41ODQsMCBMNTQuNDE2LDAgQzU2LjM4NywwIDU4LDEuNjEzIDU4LDMuNTg0IEw1OCw0LjcwNiBDNTgsNi42NzcgNTYuMzg3LDguMjkgNTQuNDE2LDguMjkiIGlkPSJGaWxsLTkzIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik01NC40MTYsMjYuNjQ0IEwzLjU4NCwyNi42NDQgQzEuNjEzLDI2LjY0NCAwLDI1LjAzMSAwLDIzLjA2IEwwLDIxLjkzOSBDMCwxOS45NjggMS42MTMsMTguMzU1IDMuNTg0LDE4LjM1NSBMNTQuNDE2LDE4LjM1NSBDNTYuMzg3LDE4LjM1NSA1OCwxOS45NjggNTgsMjEuOTM5IEw1OCwyMy4wNiBDNTgsMjUuMDMxIDU2LjM4NywyNi42NDQgNTQuNDE2LDI2LjY0NCIgaWQ9IkZpbGwtOTQiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZD0iTTU0LjQxNiw0NSBMMy41ODQsNDUgQzEuNjEzLDQ1IDAsNDMuMzg3IDAsNDEuNDE2IEwwLDQwLjI5NCBDMCwzOC4zMjMgMS42MTMsMzYuNzEgMy41ODQsMzYuNzEgTDU0LjQxNiwzNi43MSBDNTYuMzg3LDM2LjcxIDU4LDM4LjMyMyA1OCw0MC4yOTQgTDU4LDQxLjQxNiBDNTgsNDMuMzg3IDU2LjM4Nyw0NSA1NC40MTYsNDUiIGlkPSJGaWxsLTk1Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=)
+                background-image: url("img/icon.png")
             }
         </style>
         <title>Sociedade Brasileira de Dermatologia | Regional Rio de Janeiro</title>
@@ -46,7 +46,7 @@
 					
 					$('#cpf').mask("00000000000", {reverse: true})
 					
-					 $('#cpf').focusout(function(){
+					/*$('#cpf').focusout(function(){
 					
 						var cpf = $(this).val();
 						
@@ -110,69 +110,8 @@
 							 });
 						 });
 						
-					  });
-					
-					$("#insert").click(function(){
-						
-						var nome = $("#nome").val();
-						var email = $("#email").val();
-						var regional = $("#regional").val();
-						var cpf = $("#cpf").val();
-						var acao = $("#acao").val();
-						var senha = $("#senha").val();
-						var token = $("#token").val();
-						
-						$(".response").html('');
-						
-						if($("#nome").val() == ''){
-							$(".response").append('<span id="erro-login">É necessário infomar seu nome.<span>');
-						}
-						if($("#email").val() == ''){
-							$(".response").append('<span id="erro-login">É necessário infomar seu email.<span>');
-						}
-						if($("#cpf").val() == ''){
-							$(".response").append('<span id="erro-login">É necessário infomar seu CPF.<span>');
-						}
-						if($("#senha").val() == ''){
-							$(".response").append('<span id="erro-login">É necessário infomar sua senha.<span>');
-						}
-						
-						if($("#senha").val() != $("#confirmar").val()){
-							$(".response").append('<span id="erro-login">As senhas não conferem.<span>');
-						}
-						
-						
-						if($.trim(nome).length>0 & $.trim(email).length>0  & $.trim(regional).length>0  & $.trim(cpf).length>0  & $.trim(senha).length>0  & $.trim(confirmar).length>0 )	{
-							
-							var dataString="nome="+nome+"&regional="+regional+"&email="+email+"&acao="+acao+"&senha="+senha+"&cpf="+cpf+"&token="+token;
-						
-							console.log(dataString);
-						
-							
-							$.post({								
-								url:"https://eventosdermatologicos.com.br/apps/sbdsp/criar-conta.php",
-								data: dataString,
-								crossDomain: true,
-								cache: false,
-								beforeSend: function(){ $("#insert").html('Criando...');},
-								error: function(){
-									$("#insert").html('Indicar');
-									$(".response").html('<span id="erro-login">Houve um erro ao criar sua conta, por favor cheque sua internet e tente novamente.<span>');
-								},
-								success: function() {
-									$("#insert").html('Indicar');
-									$(".response").html('<a href="index.html" id="criado-sucesso">Seu cadastro foi criado com sucesso. Clique aqui para entrar</a>');
-									$("#nome").val('');
-									$("#email").val('');
-									$("#senha").val('');
-									$("#cpf").val('');
-								}
-							});
-						}
-						
-						return false;
-						
-					});					
+					  });*/
+										
 				});
 				$( document ).ajaxStart(function() {
 				  $( "#loader" ).show();
@@ -191,162 +130,143 @@
 				<div class="response" style="margin-top: 30px;"></div>
 				
               	<div id="resultado" style="background-color:#FF0000"></div>
-                 <img id="carregando" src="img/carregando.gif" height="40" width="40" style="display:none;"></center>
-                <form class="list busca" action="javascript:envia_post();">
-                <center>
-                    <input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="tel" id="cpf" placeholder="CPF" maxlength="11">                    
-                </center>
-                    <br>
-                <center>
-                    <input maxlength="25" style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="text" id="nome" placeholder="NOME PARA EXIBIÇÃO NO APP">                    
-                </center>
-                <br>
-                
-                <span style="margin-left:9%; font-size:18px; color:#888888">
-                ÁREA DE INTERESSE/ESTUDO.
-                </span><br>
-                <span style="margin-left:9%; font-size:14px; color:#AAAAAA">
-                (Selecione até 3 áreas)
-                </span>
-                <center>
-                <select id="area1" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
-                <option value="" selected></option>
-                <option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
-                <option value="CABELOS">CABELOS</option>
-                <option value="CIRURGIA">CIRURGIA E ONCOLOGIA</option>
-                <option value="COSMIATRIA">COSMIATRIA</option>
-                <option value="DERMATOPATOLOGIA">DERMATOPATOLOGIA</option>
-                <option value="DERMATOPEDIATRIA">DERMATOPEDIATRIA</option>
-                <option value="DERMATOSCOPIA">DERMATOSCOPIA</option>
-                <option value="DOENÇAS">DOENÇAS INFEC E PARASITÁRIAS</option>
-                <option value="DST">DST & AIDS</option>
-                <option value="ESTOMATOLOGIA">ESTOMATOLOGIA</option>
-                <option value="FOTOBIOLOGIA">FOTOBIOLOGIA</option>
-                <option value="HANSENÍASE">HANSENÍASE</option>
-                <option value="LASER">LASER</option>
-                <option value="INTERNA">MEDICINA INTERNA</option>
-                <option value="MICOLOGIA">MICOLOGIA</option>
-                <option value="TELEMEDICINA">TELEMEDICINA</option>
-                <option value="UNHAS">UNHAS</option>
-                
-                
-                </select>
-                <select id="area2" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
-                <option value="" selected></option>
-                <option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
-                <option value="CABELOS">CABELOS</option>
-                <option value="CIRURGIA">CIRURGIA E ONCOLOGIA</option>
-                <option value="COSMIATRIA">COSMIATRIA</option>
-                <option value="DERMATOPATOLOGIA">DERMATOPATOLOGIA</option>
-                <option value="DERMATOPEDIATRIA">DERMATOPEDIATRIA</option>
-                <option value="DERMATOSCOPIA">DERMATOSCOPIA</option>
-                <option value="DOENÇAS">DOENÇAS INFEC E PARASITÁRIAS</option>
-                <option value="DST">DST & AIDS</option>
-                <option value="ESTOMATOLOGIA">ESTOMATOLOGIA</option>
-                <option value="FOTOBIOLOGIA">FOTOBIOLOGIA</option>
-                <option value="HANSENÍASE">HANSENÍASE</option>
-                <option value="LASER">LASER</option>
-                <option value="INTERNA">MEDICINA INTERNA</option>
-                <option value="MICOLOGIA">MICOLOGIA</option>
-                <option value="TELEMEDICINA">TELEMEDICINA</option>
-                <option value="UNHAS">UNHAS</option>
-                
-                
-                </select>
-                <select id="area3" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
-                <option value="" selected></option>
-                <option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
-                <option value="CABELOS">CABELOS</option>
-                <option value="CIRURGIA">CIRURGIA E ONCOLOGIA</option>
-                <option value="COSMIATRIA">COSMIATRIA</option>
-                <option value="DERMATOPATOLOGIA">DERMATOPATOLOGIA</option>
-                <option value="DERMATOPEDIATRIA">DERMATOPEDIATRIA</option>
-                <option value="DERMATOSCOPIA">DERMATOSCOPIA</option>
-                <option value="DOENÇAS">DOENÇAS INFEC E PARASITÁRIAS</option>
-                <option value="DST">DST & AIDS</option>
-                <option value="ESTOMATOLOGIA">ESTOMATOLOGIA</option>
-                <option value="FOTOBIOLOGIA">FOTOBIOLOGIA</option>
-                <option value="HANSENÍASE">HANSENÍASE</option>
-                <option value="LASER">LASER</option>
-                <option value="INTERNA">MEDICINA INTERNA</option>
-                <option value="MICOLOGIA">MICOLOGIA</option>
-                <option value="TELEMEDICINA">TELEMEDICINA</option>
-                <option value="UNHAS">UNHAS</option>
-                
-                
-                </select>
-                </center>
-                <br>
-					<span style="margin-left:9%; font-size:18px; color:#888888">
-                ESTADO
-                </span>
-					<center>
-						
-						
-					<select id="estado" name="estado" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
-    <option value="AC">Acre</option>
-    <option value="AL">Alagoas</option>
-    <option value="AP">Amapá</option>
-    <option value="AM">Amazonas</option>
-    <option value="BA">Bahia</option>
-    <option value="CE">Ceará</option>
-    <option value="DF">Distrito Federal</option>
-    <option value="ES">Espírito Santo</option>
-    <option value="GO">Goiás</option>
-    <option value="MA">Maranhão</option>
-    <option value="MT">Mato Grosso</option>
-    <option value="MS">Mato Grosso do Sul</option>
-    <option value="MG">Minas Gerais</option>
-    <option value="PA">Pará</option>
-    <option value="PB">Paraíba</option>
-    <option value="PR">Paraná</option>
-    <option value="PE">Pernambuco</option>
-    <option value="PI">Piauí</option>
-    <option value="RJ" selected>Rio de Janeiro</option>
-    <option value="RN">Rio Grande do Norte</option>
-    <option value="RS">Rio Grande do Sul</option>
-    <option value="RO">Rondônia</option>
-    <option value="RR">Roraima</option>
-    <option value="SC">Santa Catarina</option>
-    <option value="SP">São Paulo</option>
-    <option value="SE">Sergipe</option>
-    <option value="TO">Tocantins</option>
-    <option value="EX">Estrangeiro</option>
-</select>
-						</center>
 					
-                                     
-                <br>
-                <center>
-                    <input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="password" id="senha" placeholder="SENHA">                    
-                </center>
-                <br>
-                <center>
-                    <input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="password" id="csenha" placeholder="CONFIRME A SENHA">                    
-                </center>
-                
-                <br>
-                <center>
-                    <input style="-webkit-transform:scale(2);-o-transform:scale(2);-moz-transform:scale(2);" type="checkbox" id="termo" value="1" >                    <label for="termo">Li e Aceito os </label><br><a href="termos.html" >TERMOS DE USO</a>
-                </center>
-                
-                
-                    <br>
-                
+                <img id="carregando" src="img/carregando.gif" height="40" width="40" style="display:none;"></center>
+				
+                <form class="list busca" action="javascript:envia_post();">
+					<center>
+						<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="tel" id="cpf" placeholder="CPF" maxlength="11">                    
+					</center>
+						<br>
+					<center>
+						<input maxlength="25" style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="text" id="nome" placeholder="NOME PARA EXIBIÇÃO NO APP">                    
+					</center>
+					<br>
+
+					<span style="margin-left:9%; font-size:18px; color:#888888">
+						ÁREA DE INTERESSE/ESTUDO.
+					</span><br>
+					<span style="margin-left:9%; font-size:14px; color:#AAAAAA">
+						(Selecione até 3 áreas)
+					</span>
+					
+					<center>
+						<select id="area1" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
+							<option value="" selected></option>
+							<option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
+							<option value="CABELOS">CABELOS</option>
+							<option value="CIRURGIA">CIRURGIA E ONCOLOGIA</option>
+							<option value="COSMIATRIA">COSMIATRIA</option>
+							<option value="DERMATOPATOLOGIA">DERMATOPATOLOGIA</option>
+							<option value="DERMATOPEDIATRIA">DERMATOPEDIATRIA</option>
+							<option value="DERMATOSCOPIA">DERMATOSCOPIA</option>
+							<option value="DOENÇAS">DOENÇAS INFEC E PARASITÁRIAS</option>
+							<option value="DST">DST & AIDS</option>
+							<option value="ESTOMATOLOGIA">ESTOMATOLOGIA</option>
+							<option value="FOTOBIOLOGIA">FOTOBIOLOGIA</option>
+							<option value="HANSENÍASE">HANSENÍASE</option>
+							<option value="LASER">LASER</option>
+							<option value="INTERNA">MEDICINA INTERNA</option>
+							<option value="MICOLOGIA">MICOLOGIA</option>
+							<option value="TELEMEDICINA">TELEMEDICINA</option>
+							<option value="UNHAS">UNHAS</option>
+						</select>
+
+						<select id="area2" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
+							<option value="" selected></option>
+							<option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
+							<option value="CABELOS">CABELOS</option>
+							<option value="CIRURGIA">CIRURGIA E ONCOLOGIA</option>
+							<option value="COSMIATRIA">COSMIATRIA</option>
+							<option value="DERMATOPATOLOGIA">DERMATOPATOLOGIA</option>
+							<option value="DERMATOPEDIATRIA">DERMATOPEDIATRIA</option>
+							<option value="DERMATOSCOPIA">DERMATOSCOPIA</option>
+							<option value="DOENÇAS">DOENÇAS INFEC E PARASITÁRIAS</option>
+							<option value="DST">DST & AIDS</option>
+							<option value="ESTOMATOLOGIA">ESTOMATOLOGIA</option>
+							<option value="FOTOBIOLOGIA">FOTOBIOLOGIA</option>
+							<option value="HANSENÍASE">HANSENÍASE</option>
+							<option value="LASER">LASER</option>
+							<option value="INTERNA">MEDICINA INTERNA</option>
+							<option value="MICOLOGIA">MICOLOGIA</option>
+							<option value="TELEMEDICINA">TELEMEDICINA</option>
+							<option value="UNHAS">UNHAS</option>
+						</select>
+
+						<select id="area3" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
+							<option value="" selected></option>
+							<option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
+							<option value="CABELOS">CABELOS</option>
+							<option value="CIRURGIA">CIRURGIA E ONCOLOGIA</option>
+							<option value="COSMIATRIA">COSMIATRIA</option>
+							<option value="DERMATOPATOLOGIA">DERMATOPATOLOGIA</option>
+							<option value="DERMATOPEDIATRIA">DERMATOPEDIATRIA</option>
+							<option value="DERMATOSCOPIA">DERMATOSCOPIA</option>
+							<option value="DOENÇAS">DOENÇAS INFEC E PARASITÁRIAS</option>
+							<option value="DST">DST & AIDS</option>
+							<option value="ESTOMATOLOGIA">ESTOMATOLOGIA</option>
+							<option value="FOTOBIOLOGIA">FOTOBIOLOGIA</option>
+							<option value="HANSENÍASE">HANSENÍASE</option>
+							<option value="LASER">LASER</option>
+							<option value="INTERNA">MEDICINA INTERNA</option>
+							<option value="MICOLOGIA">MICOLOGIA</option>
+							<option value="TELEMEDICINA">TELEMEDICINA</option>
+							<option value="UNHAS">UNHAS</option>                
+						</select>
+
+                	</center><br>
+					<span style="margin-left:9%; font-size:18px; color:#888888">
+                		ESTADO
+                	</span>
+					<center>
+						<select id="estado" name="estado" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
+							<option value="AC">Acre</option>
+							<option value="AL">Alagoas</option>
+							<option value="AP">Amapá</option>
+							<option value="AM">Amazonas</option>
+							<option value="BA">Bahia</option>
+							<option value="CE">Ceará</option>
+							<option value="DF">Distrito Federal</option>
+							<option value="ES">Espírito Santo</option>
+							<option value="GO">Goiás</option>
+							<option value="MA">Maranhão</option>
+							<option value="MT">Mato Grosso</option>
+							<option value="MS">Mato Grosso do Sul</option>
+							<option value="MG">Minas Gerais</option>
+							<option value="PA">Pará</option>
+							<option value="PB">Paraíba</option>
+							<option value="PR">Paraná</option>
+							<option value="PE">Pernambuco</option>
+							<option value="PI">Piauí</option>
+							<option value="RJ" selected>Rio de Janeiro</option>
+							<option value="RN">Rio Grande do Norte</option>
+							<option value="RS">Rio Grande do Sul</option>
+							<option value="RO">Rondônia</option>
+							<option value="RR">Roraima</option>
+							<option value="SC">Santa Catarina</option>
+							<option value="SP">São Paulo</option>
+							<option value="SE">Sergipe</option>
+							<option value="TO">Tocantins</option>
+							<option value="EX">Estrangeiro</option>
+						</select>
+					</center><br>
+					<center>
+						<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="password" id="senha" placeholder="SENHA">                    
+					</center><br>
+					<center>
+						<input style="width:85%; border-top-style:none; border-left-style:none; border-right-style:none; border-bottom-style:groove;" class="cadastro" type="password" id="csenha" placeholder="CONFIRME A SENHA">                    
+					</center><br>
+					<center>
+						<input style="-webkit-transform:scale(2);-o-transform:scale(2);-moz-transform:scale(2);" type="checkbox" id="termo" value="1" >           <label for="termo">Li e Aceito os </label><br><a href="termos.html" >TERMOS DE USO</a>
+					</center><br>
                     <center>
                         <button id="botao" class="btn2 entrar2" type="submit">CADASTRAR</button>
                     </center>
-<br>
-                <br>
-<br>
-&nbsp;<br>
-
-                </form><br>
-                <br>
-<br>
-&nbsp;<br>
-
-                    
+					<br><br><br>&nbsp;<br>
+                </form>
+				
+				<br><br><br>&nbsp;<br> 
+				
             </div>
             
             
