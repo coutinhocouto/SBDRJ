@@ -322,7 +322,7 @@ function envia_post ($id) {
 		//$deviceId='teste';
 
 $("#carregando").show();	
-$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "cadastro_outro", cpf: $cpf, email: $email, nome: $nome, nomeapp: $nomeapp, regional: $regional, endereco: $endereco, telefone: $telefone, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId, termo: $termo })
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "cadastro", cpf: $cpf, email: $email, nome: $nome, nomeapp: $nomeapp, regional: $regional, endereco: $endereco, telefone: $telefone, area1: $area1, area2: $area2, area3: $area3, senha: $senha, csenha: $csenha, device: $deviceId, termo: $termo })
   .done(function( data ) {
 	  if (data=='AUTORIZADO'){
 		  	
