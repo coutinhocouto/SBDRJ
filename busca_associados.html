@@ -75,7 +75,7 @@
                     <input style="width:85%;" class="buscar input" type="text" id="nome" placeholder="Nome">
 					<input style="width:85%;" class="buscar input" type="text" id="end" placeholder="Bairro ou endereço">
 					
-                    <select id="area" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
+                    <!--<select id="area" style="width:85%; border-radius:8px; height:30px; border-style:groove;">
 						<option value="" selected>TODAS AS ÁREAS</option>
 						<option value="ALERGIA">ALERGIA DERMATOLOGICA E DERMATOSES OCUPACIONAIS</option>
 						<option value="CABELOS">CABELOS</option>
@@ -94,7 +94,7 @@
 						<option value="MICOLOGIA">MICOLOGIA</option>
 						<option value="TELEMEDICINA">TELEMEDICINA</option>
 						<option value="UNHAS">UNHAS</option>   
-                	</select>
+                	</select>-->
 					<input type="submit" value="Pesquisar" id="buscar" />
 
                 </form><br>
@@ -106,15 +106,15 @@
 							 
 							 $('#listview').empty();
 							 
-							 var nome = "";
-							 var area = "";
-							 var end = "";
+							 var nomep = "";
+							 //var area = "";
+							 var endp = "";
 							 
-							 if($('#nome').val()){ nome = 'nome=' + $('#nome').val(); }
-							 if($('#area').val()){ area = 'area=' + $('#area').val(); }
-							 if($('#end').val()){ end = 'end=' + $('#end').val(); }
+							 if($('#nome').val()){ nomep = $('#nome').val(); }
+							 //if($('#area').val()){ area = 'area=' + $('#area').val(); }
+							 if($('#end').val()){ endp = $('#end').val(); }
 							 
-							 var filtro = nome + '&' + area + '&' + end;
+							 /*var filtro = nome + '&' + area + '&' + end;
 							 
 							 var url="https://app.visana.com.br/sbdrj/buscar-associados.php?" + filtro;
 							 
@@ -144,10 +144,42 @@
 
 									 $("#listview").append('<div class="lista-ass"><h3>' + nome + '</h3><div class="mais-detalhes"><strong>' + cat + '</strong><br><strong>RQE:</strong> ' + rqe + '<br><strong>ENDEREÇO:</strong> ' + end + ',' + num + ' - ' + comp + '<br> ' + cid + ' - ' + bairro + '<br><strong>TEL.:</strong> ' + tel + '<br><strong>SITE: </strong> ' + nome + '</a><br><a class="btn3 outros" style="color:#FFFFFF;" href="https://www.google.com.br/maps/place/'+ end + ',,' + num + ', ' + cid +'" target="_blank"><i class="fas fa-map"></i> COMO CHEGAR </a></div></div>');
 								 });
-							 });
+							 });*/
 							 
-							 return false;
-							 
+							
+							 var pesq = "https://www.sbdassociados.org.br/interface/SocioQuiteIsento.asmx/BuscaAssociado?Seg=10TG7&EmpresaSeq=47&EstadoOuEx=RJ&Cidade=" + endp + "&NomeParte=" + nomep
+							 console.log(pesq)
+
+							 $.ajax({
+								type: "GET",
+								url: pesq,
+								dataType: "xml",
+
+								error: function (e) {
+									alert("An error occurred while processing XML file");
+									console.log("XML reading Failed: ", e);
+								},
+
+								success: function (response) {
+
+									$(response).find("ASSOCIADO").each(function () {
+										var nome = $(this).find('NOME').text();
+										var cat = $(this).find('CATEGORIA_COD').text();
+										var rqe = $(this).find('RQE_NUM').text();
+										var end = $(this).find('ENDERECO_COMERCIAL_1').text();
+										var num = $(this).find('NUMERO_COMERCIAL_1').text();
+										var comp = $(this).find('COMPLEMENTO_COMERCIAL_1').text();
+										var cid = $(this).find('CIDADE_COMERCIAL_1').text();
+										var bairro = $(this).find('BAIRRO_COMERCIAL_1').text();
+										var tel = '(' + $(this).find('DDD_COMERCIAL_1').text() + ') ' + $(this).find('TEL_COMERCIAL_1').text();
+
+										$("#listview").append('<div class="lista-ass"><h3>' + nome + '</h3><div class="mais-detalhes"><strong>' + cat + '</strong><br><strong>RQE:</strong> ' + rqe + '<br><strong>ENDEREÇO:</strong> ' + end + ',' + num + ' - ' + comp + '<br> ' + cid + ' - ' + bairro + '<br><strong>TEL.:</strong> ' + tel + '<br><a class="btn3 outros" style="color:#FFFFFF;" href="https://www.google.com.br/maps/place/'+ end + ',,' + num + ', ' + cid +'" target="_blank"><i class="fas fa-map"></i> COMO CHEGAR </a></div></div>');
+									});
+								}
+							});
+
+							return false;
+
 						});
 						 
 					 });
