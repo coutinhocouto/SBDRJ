@@ -30,7 +30,7 @@
 	
     <plugin name="cordova-plugin-battery-status" source="npm" spec="2.0.3" />
     <plugin name="cordova-plugin-device" source="npm" spec="2.0.3" />
-    <plugin name="cordova-plugin-device-motion" source="npm" spec="2.1.0" />
+    <plugin name="cordova-plugin-device-motion" source="npm" spec="2.0.1" />
     <plugin name="cordova-plugin-device-orientation" source="npm" spec="2.0.1" />
     <plugin name="cordova-plugin-dialogs" source="npm" spec="2.0.2" />
     <plugin name="cordova-plugin-geolocation" source="npm" spec="4.0.2" />
