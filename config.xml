@@ -144,4 +144,5 @@
     <edit-config target="ITSAppUsesNonExemptEncryption" file="*-Info.plist" mode="merge">
 
 <false/>
+</edit-config>
 </widget>
