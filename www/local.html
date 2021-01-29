@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script type="text/javascript" src="js/index.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="css/base.css">
+        <link rel="stylesheet" type="text/css" href="css/guia_2.css?v3">     
+        
+        
+
+
+         
+        <style>
+            .icon.menu-icon::after{
+                background-image: url("img/icon.png")
+            }
+        </style>
+        <title>Sociedade Brasileira de Dermatologia | Regional Rio de Janeiro</title>
+        
+    <script src="js/jquery.js"></script>
+    
+    
+<script type='text/javascript' src='lib/jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='lib/jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='lib/thickbox-compressed.js'></script>
+<script type='text/javascript' src='js/jquery.autocomplete.js'></script>
+
+<link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="lib/thickbox.css" />    
+       
+    </head>
+  
+    <body onLoad="envia_post('0');">
+   
+            <div class="menu">
+            <div class="app-menu">
+                <a role="button" href="#" class="icon close"><span>Fechar</span></a>
+                <div class="sub-menu">
+                    <ul class="list">
+                    <li class="item"><a role="button" class="btn icon sbdrj" href="instituicao.html"><span>A instituição</span></a></li>
+                    <li class="item"><a role="button" class="btn icon tools" href="ferramentas.html"><span>Ferramentas Clínicas</span></a></li>
+                    <li class="item"><a role="button" class="btn icon guia" href="guia.html"><span>Guia Médico</span></a></li>
+                    <li class="item"><a role="button" class="btn icon eventos" href="eventos.html"><span>Eventos</span></a></li>
+                    <li class="item"><a role="button" class="btn icon galeria" href="galeria.html"><span>Galeria</span></a></li>
+                    <li class="item"><a role="button" class="btn icon chat" href="forum.html"><span>Fórum</span></a></li>
+                    <li class="item"><a role="button" class="btn icon cadastro" href="altera_cadastro.html"><span>Alterar Dados</span></a></li>
+                    <li class="item"><a role="button" class="btn icon config" href="sobre.html"><span>Sobre o App</span></a></li>
+                    <li class="item"><a role="button" class="btn icon sair last" href="sair.html"><span>Logout</span></a></li>
+                </ul>
+                </div>
+                <div class="footer-menu">
+                        <span class="title">Diretoria 2019-2020 | Gestão Professora Maria Auxiliadora Jeunon Sousa</span>
+                        <span class="text">SBDRJ | Sociedade Brasileira de Dermatologia - Regional Rio de Janeiro</span>
+                        <a class="link-site" href="https://www.sbdrj.org.br">www.sbdrj.org.br</a>
+                </div>
+                
+            </div>      
+
+        </div>
+        <div class="app">
+            <div class="header">
+                <div class="menubar">
+                        <a role="button" href="#" class="icon menu-icon hidden-text">Menu</a>
+                        <img class="logo-mini" src="img/logo.jpg" alt="Logo SBDRJ" style="height: 42px; margin: 4px; width: 59px;">
+                </div>
+                <div class="sub-bars">
+                    <div class="return-bar">
+                        <a role="button" href="javascript:window.history.go(-1)" class="icon return hidden-text">Voltar</a>
+                        <div class="title icon eventos"><span>Eventos</span></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class=" white align-vertical scroll">
+                <div class="servico-bar">
+                    <span class="title"><div id="nomeevento">Local</div></span>
+                </div>              
+                <form class="list busca">
+                <center>
+                <h3></h3>
+                </center>               <br>
+                 </form>   
+                <center><img id="carregando" src="img/carregando.gif" height="40" width="40" style="display:none;"></center>
+                <div id="resultado"></div>
+                    
+            </div>
+            <div class="toolbar black">
+                <ul class="list">
+                    <li class="item"><a role="button" href="principal.html" class="icon home hidden-text">Home</a></li>
+                    <li class="item"><a role="button" href="eventos.html" class="icon eventos hidden-text">Eventos</a></li>
+                    <li class="item"><a role="button" href="ferramentas.html" class="icon tools hidden-text">Ferramentas Clínicas</a></li> 
+                    <li class="item"><a id="notificacoes" role="button" href="notificacoes.html" class="icon notif hidden-text">Notificações</a></li>
+                    
+                </ul>
+            </div>
+            
+        </div>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+       
+    </body>
+</html>
+
+
+<script>
+function envia_post () {
+
+
+	var url_atual = window.location.href;
+	var retorno = url_atual.split('?data=');
+	var $cod_evento = retorno[1];	
+
+$("#carregando").show();	
+
+$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "local", cod_evento: $cod_evento })
+  .done(function( data ) {
+	  if (data=='AUTORIZADO'){
+		  	
+		window.location.href = "principal.html?logado";
+	  }
+	  else {
+		  $("#carregando").hide();
+		  $( "#resultado" ).html(data);
+	  }
+    
+  });
+};
+</script>
+
+<script>
+function carrega_notificacoes($id) {
+	
+	$("#carregando").show();
+	
+	document.addEventListener("deviceready", onDeviceReady, false);
+		
+	function onDeviceReady() {
+		var $deviceId = device.uuid || 1337;
+		
+		//var $deviceId='020A147F-316C-46FC-AF63-0C8685371F3C';
+	
+	
+	$.post( "https://app.visana.com.br/sbdrj/recebepost.php", { form: "notificacoes_count", device: $deviceId })
+  .done(function( data ) {
+	  if (data!=''){
+		  var element = document.getElementById("notificacoes");
+		  element.classList.remove('notif');
+		  element.classList.add(data);
+	  };
+  });
+  
+	}
+	
+}
+
+carrega_notificacoes('0');
+</script>
+
